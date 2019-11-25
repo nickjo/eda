@@ -10,27 +10,73 @@ Created on Sun Nov  3 15:26:38 2019
 """
 #%%
 # Stack
+from collections import deque
+dq_list = deque()
 
-.........
+type(dq_list)
+
+for i in range(5):
+    dq_list.append(i)
+
+print(dq_list)
+
+#%%
+dq_list.pop()
+
+#%%
+dq_list.popleft()    
 
 
 
 #%%
 # Queue
 
-.........
+from collections import deque
+dq_list = deque()
+
+for i in range(5):
+    dq_list.appendleft(i)
+
+print(dq_list)
+
+#%%
+dq_list.pop()
+
+#%%
+dq_list.popleft()
+
 
 
 
 #%%
 # Circular Queue - rotate()
 
-.........
+from collections import deque
+dq_list = deque()
 
+for i in range(5):
+    dq_list.append(i)
+
+print(dq_list)
+
+#%%
+dq_list.rotate()
+dq_list.rotate()
+print(dq_list)
 
 #%%
 # reverse()
-.......
+from collections import deque
+dq_list = deque()
+
+for i in range(5):
+    dq_list.append(i)
+
+print(dq_list)
+
+#%%
+dq_list.reverse()
+print(dq_list)
 
 
 
@@ -38,7 +84,9 @@ Created on Sun Nov  3 15:26:38 2019
 # extend(), extendleft()
 
 dq_list = deque([0, 1, 2, 3, 4])
-dq_list._____
+
+#%%
+dq_list.extend([8,7,6])
 dq_list
 
 #%%
@@ -61,7 +109,7 @@ for k, v in d.items():
     print(k, v)
 
 #%%
-..........       
+from collections import OrderedDict       
 
 d = OrderedDict()
 
@@ -85,7 +133,10 @@ d['z'] = 300
 def sort_by_key(t):
     return t[0]      
 
-od = OrderedDict( ............. )
+def sort_by_val(t):
+    return t[1]      
+
+od = OrderedDict(sorted(d.items(), key=sort_by_val) )
 od.items()
 
 #%%
@@ -113,7 +164,7 @@ d = dict()
 print(d["first"])
 
 #%%
-..........
+from collections import defaultdict
 
 d = defaultdict(lambda: 0)          # Default 값을 0으로 설정
 print(d["first"], d['bb'])
@@ -121,7 +172,8 @@ d.items()
 
 #%%
 # error : yellow key
-s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
+s = [('yellowg', 1), ('blueg', 2), ('yellow1', 3), ('blue1', 4), ('red', 1)]
+type(s)
 d = dict()
 for k, v in s:
     d[k].append(v)
@@ -132,7 +184,7 @@ print(d.items())
 from collections import defaultdict
 
 s = [('yellow', 1), ('blue', 2), ('yellow', 3), ('blue', 4), ('red', 1)]
-d = ..........
+d = defaultdict(list)
 for k, v in s:
     d[k].append(v)
 

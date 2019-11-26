@@ -201,18 +201,21 @@ text = """A press release is the quickest and easiest way to get free \
   new prospects contacting you asking you to sell to them. ….""".lower().split()
 type(text), text[:10]
 
+#%%
 # default dictionary 사용
 from collections import defaultdict
 
-word_count = ...........             # Default 값을 0으로 설정
-.......
+word_count = defaultdict(lambda:0)             # Default 값을 0으로 설정
+for word in text:
+    word_count[word] += 1
 
 word_count
 
+#%%
 # ordered dictionary 사용
 from collections import OrderedDict
 
-od = ...........
+od = OrderedDict(sorted(word_count.items(), key=lambda t:t[0]))
 od
 
 #%%
@@ -226,9 +229,9 @@ text = list('Good morning everybody!!')
 type(text), text[:10]
 
 #%%
-c = ..........
+c = Counter(text)
 c['o'], c['e'], c['g']
-
+c
 
 #%%
 # collections 응용-1
@@ -238,16 +241,19 @@ text = """A press release is the quickest and easiest way to get free \
   published articles about your firm and its products. And that can mean \
   new prospects contacting you asking you to sell to them. ….""".lower().split()
 type(text), text[:10]
-
+#%%
 from collections import Counter
 
-c = .........
+c = Counter(text)
 c
 
 #%%
 from collections import Counter
 
 c = Counter({'red':3, 'blue':1, 'gray':4})
+c.keys()
+c.values()
+#%%
 list(c.___)
 
 #%%
@@ -260,6 +266,8 @@ list(c.____)
 from collections import Counter
 
 c = Counter(cats=3, dogs=5)
+c.elements()
+#%%
 list(c.elements())
 
 #%%
@@ -269,7 +277,11 @@ from collections import Counter
 
 c1 = Counter(a=3, b=5, c=2)
 c2 = Counter(a=-1, b=3, c=7)
-....   #뺄셈
+list(c1.elements())
+#%%
+list(c2.elements())
+#%%
+c1.subtract(c2)   #뺄셈
 c1
 
 #%%
@@ -277,9 +289,12 @@ from collections import Counter
 
 c1 = Counter(a=3, b=5, c=2)
 c2 = Counter(a=-1, b=3, c=7)
-....  # 덧셈
-....  # 논리 AND
-....  # 논리 OR
+
+c1 + c2  # 덧셈
+#%%
+c1 & c2  # 논리 AND
+#%%
+c1 | c2  # 논리 OR
 
 #%%
 """

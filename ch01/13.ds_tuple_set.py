@@ -29,20 +29,30 @@ type(s)
 s.update([1,4,5,6,7,8,9])
 print(s)
 type(s)
-s.discard()
+s.discard(5)
 print(s)
 
 #%%
 # 합집합
+set_a = {1,2,3}
+set_b = {2,3,4}
 
+set_a.union(set_b)
 
 #%%
 # 교집합
+set_a = {1,2,3}
+set_b = {2,3,4}
 
+set_a.intersection(set_b)
 
 #%%
 # 차집합
+set_a = {1,2,3}
+set_b = {2,3,4}
 
+print(set_a.difference(set_b))
+print(set_a)
 
 
 
